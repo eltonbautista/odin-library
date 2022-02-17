@@ -63,19 +63,25 @@ const displayBook = function() {
 const formContainer = document.querySelector('.form-container')
 const popupButton = document.getElementById('popup-button');
 const formButton = document.getElementById('form-button')
+const form = document.querySelector('#form')
+
+window.onload = function() {
+    formContainer.style.visibility = 'hidden';
+}
 
 const formVisible = function() {
-    formContainer.style.visibility = 'visible';
+    if (formContainer.style.visibility == 'hidden') {
+        formContainer.style.visibility = 'visible';
+    } else formContainer.style.visibility = 'hidden' 
 }
 
 const formHidden = function() {
     formContainer.style.visibility = 'hidden';
 }
 
-const addNewBook = function() {
-    if(title.value == '' || author.value == '' || pages.value == '' || genre.value == '') {
-        return alert('Please fill in all fields')
-    } else {
+const addNewBook = function(e) {
+
+    e.preventDefault();
     addBookToLibrary();
     displayBook();
     title.value = '';
@@ -84,8 +90,8 @@ const addNewBook = function() {
     genre.value = '';
     read.checked = false;
     formHidden();
-    }
+    
 }
 
 popupButton.addEventListener('click', formVisible);
-formButton.addEventListener('click', addNewBook);
+form.addEventListener('submit', addNewBook);
