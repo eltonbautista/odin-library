@@ -12,12 +12,15 @@ function Book(title, author, pages, genre, read) {
     this.pages = pages;
     this.genre = genre;
     this.read = read;
-    
 }
 
-// Book.prototype.info = function() {
-//     return this.title + ' by ' + this.author + ', ' + this.pages + ' pages, ' + this.read + '.';
-// }
+Book.prototype.readToggle = function() {
+    if (this.read == 'Yes') {
+        this.read = 'No'
+    } else if (this.read == 'No') {
+        this.read = 'Yes'
+    }
+}
 
 // Function which adds new book objects to myLibrary array.
 function addBookToLibrary() {
@@ -39,23 +42,54 @@ function addBookToLibrary() {
 
 const tableBody = document.querySelector('tbody');
 const tableDisplay = document.getElementById('#table-display');
-
+const rowToRemove = document.querySelector('tbody tr');
 
 const displayBook = function() {
     tableBody.innerText = ''
+    let i = 0;
+    let j = 0;
 
     myLibrary.forEach(book => {
-        
+    
         const newTableRow = document.createElement('tr');
         tableBody.appendChild(newTableRow);
+        
             for (let property in book) {
-                if (property == 'info') {break} else {
+                if (property == 'readToggle') {continue} else {
                 const newTableDataCell = document.createElement('td');
                 const information = document.createTextNode(book[property] + '');
                 newTableDataCell.appendChild(information);
                 newTableRow.appendChild(newTableDataCell);
+                if (property == 'read') {
+                    newTableDataCell.setAttribute('data-test', `${i}`)
+                }
                 }
             }
+            const removerColumn = document.createElement('td');
+            const removeButton = document.createElement('button');
+            removeButton.innerText = 'Remove?'
+            removeButton.dataset.remove = j++;
+            removerColumn.appendChild(removeButton);
+            newTableRow.appendChild(removerColumn);
+            removeButton.addEventListener('click', function() {
+                myLibrary.splice(removeButton.dataset.remove, 1)
+                displayBook();
+            })
+
+            const readToggleColumn = document.createElement('td');
+            const readToggleButton = document.createElement('button');
+            readToggleButton.innerText = 'Read Toggle';
+            readToggleButton.dataset.toggle = i++;
+            readToggleColumn.appendChild(readToggleButton);
+            newTableRow.appendChild(readToggleColumn);
+            readToggleButton.addEventListener('click', function() {
+                if (myLibrary[readToggleButton.dataset.toggle].read == 'Yes') {
+                    myLibrary[readToggleButton.dataset.toggle].read = 'No'
+                } else if (myLibrary[readToggleButton.dataset.toggle].read == 'No') {
+                    myLibrary[readToggleButton.dataset.toggle].read = 'Yes'
+                }
+            });
+            readToggleButton.addEventListener('click', displayBook)
     })
     
 }
@@ -79,7 +113,8 @@ const formHidden = function() {
     formContainer.style.visibility = 'hidden';
 }
 
-const addNewBook = function(e) {
+
+function addNewBook(e) {
 
     e.preventDefault();
     addBookToLibrary();
@@ -90,8 +125,9 @@ const addNewBook = function(e) {
     genre.value = '';
     read.checked = false;
     formHidden();
-    
-}
 
+}
 popupButton.addEventListener('click', formVisible);
 form.addEventListener('submit', addNewBook);
+
+
