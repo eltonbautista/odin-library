@@ -53,10 +53,12 @@ const bookDisplay = function() {
         const newTableRow = document.createElement('tr');
         tableBody.appendChild(newTableRow);
             for (let property in book) {
+                if (property == 'info') {break} else {
                 const newTableDataCell = document.createElement('td');
-                const information = document.createTextNode(book.property + '');
+                const information = document.createTextNode(book[property] + '');
                 newTableDataCell.appendChild(information);
                 newTableRow.appendChild(newTableDataCell);
+                }
             }
     })
     
