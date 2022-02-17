@@ -8,6 +8,8 @@
     <title>Library Project</title>
 </head>
 <body>
+
+
     <table id="table-display">
         <caption>My Library</caption>
         <thead>
@@ -15,18 +17,56 @@
                 <th>Title</th>
                 <th>Author</th>
                 <th>Pages</th>
+                <th>Genre</th>
                 <th>Read</th>
             </tr>
         </thead>
         <tfoot>
             <tr>
-                <td colspan="4">My Personal Library</td>
+                <td colspan="5">My Personal Library</td>
             </tr>
         </tfoot>
         <tbody>
             
         </tbody>
     </table>
+
+    <div class="form-container">
+        <form action="book-keeping">
+            <fieldset>
+            <legend>Add a New Book</legend>
+                <div>
+                    <div>
+                        <label for="title">Title:</label>
+                        <input type="text" name="title" id="title" required>
+                    </div>
+                    <div>
+                        <label for="pages">Pages:</label>
+                        <input type="number" name="pages" id="pages" required>
+                    </div>
+                    <div>
+                        <label for="read-status">Read Status:</label>
+                        <input type="checkbox" name="read-status" id="read-status" required>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label for="author">Author:</label>
+                        <input type="text" name="author" id="author" required>
+                    </div>
+                    <div>
+                        <label for="genre">Genre:</label>
+                        <input type="text" name="genre" id="genre" required>
+                    </div>
+                    <div>
+                        <button type="button"  id="form-button">Add New Book</button>
+                    </div>
+        
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <button type="button" id="popup-button">Book Form</button>
     <script src="script.js" defer></script>
 </body>
 </html>
