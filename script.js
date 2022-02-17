@@ -1,5 +1,5 @@
 let myLibrary = [];
-let book = {};
+let newBooks = [];
 
 // The Constructor Function used to create new book object(s).
 function Book(title, author, pages, read) {
@@ -44,12 +44,14 @@ myLibrary.push(new Book('Atomic Habits', 'James Clear', '500', 'Yes'));
 // E.g. myLibrary[0].title will display in Title section of table.
 
 const tableBody = document.querySelector('tbody');
-
+const tableDisplay = document.getElementById('#table-display');
 
 
 const bookDisplay = function() {
-    
+    tableBody.innerText = ''
+
     myLibrary.forEach(book => {
+        
         const newTableRow = document.createElement('tr');
         tableBody.appendChild(newTableRow);
             for (let property in book) {
