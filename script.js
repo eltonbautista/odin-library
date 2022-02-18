@@ -14,13 +14,13 @@ function Book(title, author, pages, genre, read) {
     this.read = read;
 }
 
-Book.prototype.readToggle = function() {
-    if (this.read == 'Yes') {
-        this.read = 'No'
-    } else if (this.read == 'No') {
-        this.read = 'Yes'
-    }
-}
+// Book.prototype.readToggle = function() {
+//     if (this.read == 'Yes') {
+//         this.read = 'No'
+//     } else if (this.read == 'No') {
+//         this.read = 'Yes'
+//     }
+// }
 
 // Function which adds new book objects to myLibrary array.
 function addBookToLibrary() {
@@ -85,11 +85,13 @@ const displayBook = function() {
             readToggleButton.addEventListener('click', function() {
                 if (myLibrary[readToggleButton.dataset.toggle].read == 'Yes') {
                     myLibrary[readToggleButton.dataset.toggle].read = 'No'
+                    displayBook();
                 } else if (myLibrary[readToggleButton.dataset.toggle].read == 'No') {
                     myLibrary[readToggleButton.dataset.toggle].read = 'Yes'
+                    displayBook();
                 }
             });
-            readToggleButton.addEventListener('click', displayBook)
+            // readToggleButton.addEventListener('click', displayBook)
     })
     
 }
