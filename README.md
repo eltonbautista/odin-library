@@ -4,7 +4,9 @@ This is a simple library that can be used to keep track of a book's title, autho
 ![image](https://user-images.githubusercontent.com/94667178/154722440-da403441-952b-4ab6-998e-6d3b824be265.png)
 
 [Live Preview](https://eltonbautista.github.io/odin-library/)
+
 [Follow me on Twitter!](https://twitter.com/psychtotech)
 
 - Font used: https://indestructibletype.com/Jost.html
+
 - Github Octocat image from: https://github.com/logos
