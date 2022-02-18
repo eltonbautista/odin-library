@@ -34,11 +34,6 @@ function addBookToLibrary() {
 
 }
 
-// myLibrary.push(new Book('Hello Kitty', 'Yuko Shimizu', '12', 'No', 'Horror'));
-// myLibrary.push(new Book('Atomic Habits', 'James Clear', '500', 'Yes', 'Self Help'));
-
-// Function that ITERATES through myLibrary array and displays each index's properties. 
-// E.g. myLibrary[0].title will display in Title section of table.
 
 const tableBody = document.querySelector('tbody');
 const tableDisplay = document.getElementById('#table-display');
@@ -67,7 +62,7 @@ const displayBook = function() {
             }
             const removerColumn = document.createElement('td');
             const removeButton = document.createElement('button');
-            removeButton.innerText = 'Remove?'
+            removeButton.innerText = 'Remove'
             removeButton.dataset.remove = j++;
             removerColumn.appendChild(removeButton);
             newTableRow.appendChild(removerColumn);
@@ -100,9 +95,11 @@ const formContainer = document.querySelector('.form-container')
 const popupButton = document.getElementById('popup-button');
 const formButton = document.getElementById('form-button')
 const form = document.querySelector('#form')
+const table = document.querySelector('table');
 
 window.onload = function() {
     formContainer.style.visibility = 'hidden';
+    table.style.visibility = 'hidden';
 }
 
 const formVisible = function() {
@@ -116,6 +113,11 @@ const formHidden = function() {
 }
 
 
+
+const tableVisible = function () {
+    table.style.visibility = 'visible';
+}
+
 function addNewBook(e) {
 
     e.preventDefault();
@@ -127,7 +129,7 @@ function addNewBook(e) {
     genre.value = '';
     read.checked = false;
     formHidden();
-
+    tableVisible();
 }
 popupButton.addEventListener('click', formVisible);
 form.addEventListener('submit', addNewBook);

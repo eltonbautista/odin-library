@@ -10,65 +10,86 @@
 <body>
 
 
-    <table id="table-display">
-        <caption>My Library</caption>
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Pages</th>
-                <th>Genre</th>
-                <th>Read</th>
-                <th>Remover</th>
-                <th>Read Toggle</th>
-            </tr>
-        </thead>
-        <tfoot>
-            <tr>
-                <td colspan="7">My Personal Library</td>
-            </tr>
-        </tfoot>
-        <tbody>
-            
-        </tbody>
-    </table>
-
-    <div class="form-container">
-        <form id="form">
-            <fieldset>
-            <legend>Add a New Book</legend>
-                <div>
-                    <div>
-                        <label for="title">Title:</label>
-                        <input type="text" name="title" id="title" required>
-                    </div>
-                    <div>
-                        <label for="pages">Pages:</label>
-                        <input type="number" name="pages" id="pages" required>
-                    </div>
-                    <div>
-                        <label for="read-status">Read Status:</label>
-                        <input type="checkbox" name="read-status" id="read-status" >
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <label for="author">Author:</label>
-                        <input type="text" name="author" id="author" required>
-                    </div>
-                    <div>
-                        <label for="genre">Genre:</label>
-                        <input type="text" name="genre" id="genre" required>
-                    </div>
-                    <div>
-                        <input type="submit"  id="form-button">Add New Book</button>
-                    </div>
+    <div id="main-container">
+        <div>
+            <table id="table-display">
+                <caption>My Library</caption>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Pages</th>
+                        <th>Genre</th>
+                        <th>Read</th>
+                        <th>Remover</th>
+                        <th>Read Toggle</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <td colspan="7">Patience</td>
+                    </tr>
+                </tfoot>
+                <tbody>
         
-                </div>
-            </fieldset>
-        </form>
+                </tbody>
+            </table>
+        </div>
+
+
+        <div>
+            <div class="form-container">
+                <form id="form">
+                    <fieldset>
+                    <legend>Add a New Book</legend>
+                        <div>
+                            <div>
+                                <label for="title">Title:</label>
+                                <input type="text" name="title" id="title" required>
+                            </div>
+
+                            <div>
+                                <label for="pages">Pages:</label>
+                                <input type="number" name="pages" id="pages" required>
+                            </div>
+                            
+                            <div>
+                                <label for="author">Author:</label>
+                                <input type="text" name="author" id="author" required>
+                            </div>
+
+                            <div>
+                                <label for="genre">Genre:</label>
+                                <input type="text" name="genre" id="genre" required>
+                            </div>
+
+                            <div>
+                                <label for="read-status">Read Status:</label>
+                                <input type="checkbox" name="read-status" id="read-status" >
+                            </div>
+
+                            <div>
+                                <input type="submit"  id="form-button" value="Add New Book"></button>
+                            </div>
+                            
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <button type="button" id="popup-button">Book Form</button>
+        </div>
     </div>
-    <button type="button" id="popup-button">Book Form</button>
+
+    <footer class="footer">
+        <span>
+            <a href="https://github.com/eltonbautista">Copyright © PsychToTech 2022 <img src="./GitHub-Mark-32px.png" alt="octocat">
+            </a>
+        </span>
+    </footer>
+
+
+
     <script src="script.js" defer></script>
 </body>
 </html>
+

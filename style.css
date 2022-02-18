@@ -7,6 +7,7 @@
 }
 * {
   margin: 0;
+  font-family: jost, sans-serif;
 }
 html, body {
   height: 100%;
@@ -28,62 +29,204 @@ p, h1, h2, h3, h4, h5, h6 {
 #root, #__next {
   isolation: isolate;
 }
+@font-face {
+  font-family: jost;
+  src: url(./Jost-300-Light.otf);
+}
+/* BODY */
+body {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-rows: 10fr 0.5fr;
+  letter-spacing: 1px;
+  background-color: wheat;
+}
 
+/* FOOTER */
+footer {
+  background-color: #d1d5db;
+  min-width: 100vw;
+  min-height: 100%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+footer img {
+  display: inline;
+  margin-right: 35px;
+}
+footer > span {
+  width: 310px;
+}
+
+footer > span > a {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: end;
+  margin-bottom: 5px;
+  text-decoration: none;
+  color: black;
+}
+
+/* MAIN CONTAINER */
+#main-container {
+  min-height: 65vh;
+  min-width: 50vw;
+  display: grid;
+  grid-template-columns: 4fr 0.5fr;
+  background-color: rgba(255, 255, 255, 0.822);
+  border-radius: 20px;
+  border: 3px inset rgb(255, 0, 0);
+  box-shadow: -10px 10px rgb(253, 0, 0);
+}
+
+#main-container > div:last-child {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  margin-right: 10px;
+  margin-top: 10px;
+  height: 96%
+}
+
+#main-container > div:last-child > button {
+  width: 65%;
+  justify-self: center;
+  border-radius: 50px;
+  font-weight: 900;
+  font-size: 18px;
+}
+
+#main-container > div:last-child > button:hover {
+  color: white;
+  background-color: cyan;
+  border: 1px dashed rgb(47, 0, 255);
+}
+
+
+#main-container > div:first-child {
+  justify-content: center;
+  display: grid;
+  grid-template-rows: 0;
+  grid-template-columns: 75%;
+}
+
+table {
+  margin-top: 50px;
+  justify-self: center;
+  font-weight: 900;
+  width: 100%;
+}
 /* TABLE */
 html {
     font-family: sans-serif;
   }
-  
-  table {
+
+table {
     border-collapse: collapse;
-    border: 2px solid rgb(200,200,200);
+    border: 4px solid rgba(0, 0, 0, 0.596);
     letter-spacing: 1px;
     font-size: 0.8rem;
   }
   
-  td, th {
-    border: 1px solid rgb(190,190,190);
+td, th {
+    border: 2px solid rgba(255, 255, 255, 0.6);
     padding: 10px 20px;
   }
   
-  th {
-    background-color: rgb(235,235,235);
+th {
+    background-color: rgba(145, 140, 140, 0.993);
   }
-  
-  td {
+
+
+td {
     text-align: center;
+
   }
   
-  tr:nth-child(even) td {
-    background-color: rgb(250,250,250);
+tr:nth-child(even) td {
+    background-color: rgb(172, 170, 170);
   }
   
-  tr:nth-child(odd) td {
-    background-color: rgb(245,245,245);
+tr:nth-child(odd) td {
+    background-color: rgb(150, 150, 150);
   }
   
-  caption {
+caption {
     padding: 10px;
+    font-size: 20px;
   }
+
+table button {
+  background-color: white;
+  border: 1px solid white;
+  font-size: 13px;
+  border-radius: 2px;
+  padding: 0 2px 0 2px;
+}
+table button:hover {
+  color: white;
+  background-color: black;
+  border: 1px solid black
+}
+
+table button:focus {
+  color: red;
+  background: wheat;
+  border: 1px solid wheat;
+}
 
 /* FORM */
-.form-container {
-  
-  min-height: 50vh;
-  min-width: 30vw;
 
-  max-height: 50vh;
-  max-width: 40vw;
-  
-}
 
 .form-container fieldset {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 100px;
+  border-radius: 15px;
+  border-color: rgba(0, 0, 0, 0.37);
+  font-weight: 900;
+}
+
+.form-container form input {
+  border-radius: 7px;
+  font-weight: 900;
+  border: 2px solid black;
+  outline: none;
+  font-size: 16px;
+  background: #e5e7eb;
+}
+
+.form-container form input:hover {
+  background-color: white;
+}
+
+.form-container form label {
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.form-container form input[type="checkbox"] {
+  width: 20px;
+  height: 15px;
+}
+
+
+fieldset > div > div:nth-child(5) {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  padding: 1px;
+}
+
+fieldset > div > div:nth-child(5):hover {
+  background-color: wheat;
+  border: 1px solid black;
+  border-radius: 5px;
 }
 
 fieldset > div {
   display: grid;
-  grid-auto-rows: 200px 200px auto;
+  grid-auto-rows: 1fr 1fr auto;
+  gap: 30px;
+  justify-items: center;
+  align-items: center;
 }
