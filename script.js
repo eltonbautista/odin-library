@@ -1,11 +1,21 @@
+// DOM ELEMENTS
+const formContainer = document.querySelector('.form-container')
+const popupButton = document.getElementById('popup-button');
+const formButton = document.getElementById('form-button')
+const form = document.querySelector('#form')
+const table = document.querySelector('table');
+const tableBody = document.querySelector('tbody');
+const tableDisplay = document.getElementById('#table-display');
+const rowToRemove = document.querySelector('tbody tr');
+const title = document.querySelector('#title');
+const author = document.querySelector('#author');
+const pages = document.querySelector('#pages');
+const genre = document.querySelector('#genre');
+const read = document.querySelector('#read-status');
+
+// FUNCTIONS
 let myLibrary = [];
-let newBooks = [];
-let title = document.querySelector('#title');
-let author = document.querySelector('#author');
-let pages = document.querySelector('#pages');
-let genre = document.querySelector('#genre');
-let read = document.querySelector('#read-status');
-// The Constructor Function used to create new book object(s).
+
 function Book(title, author, pages, genre, read) {
     this.title = title;
     this.author = author;
@@ -14,15 +24,6 @@ function Book(title, author, pages, genre, read) {
     this.read = read;
 }
 
-// Book.prototype.readToggle = function() {
-//     if (this.read == 'Yes') {
-//         this.read = 'No'
-//     } else if (this.read == 'No') {
-//         this.read = 'Yes'
-//     }
-// }
-
-// Function which adds new book objects to myLibrary array.
 function addBookToLibrary() {
 
     if (read.checked == true) {
@@ -30,14 +31,7 @@ function addBookToLibrary() {
     } else if(read.checked == false) {
         return myLibrary.push(new Book(title.value, author.value, pages.value, genre.value, 'No'))
     }
-//return myLibrary.push(myLibrary[objectName()] = new Book(title, author, pages, genre, read));
-
 }
-
-
-const tableBody = document.querySelector('tbody');
-const tableDisplay = document.getElementById('#table-display');
-const rowToRemove = document.querySelector('tbody tr');
 
 const displayBook = function() {
     tableBody.innerText = ''
@@ -55,11 +49,9 @@ const displayBook = function() {
                 const information = document.createTextNode(book[property] + '');
                 newTableDataCell.appendChild(information);
                 newTableRow.appendChild(newTableDataCell);
-                if (property == 'read') {
-                    newTableDataCell.setAttribute('data-test', `${i}`)
-                }
                 }
             }
+            
             const removerColumn = document.createElement('td');
             const removeButton = document.createElement('button');
             removeButton.innerText = 'Remove'
@@ -86,16 +78,8 @@ const displayBook = function() {
                     displayBook();
                 }
             });
-            // readToggleButton.addEventListener('click', displayBook)
     })
-    
 }
-
-const formContainer = document.querySelector('.form-container')
-const popupButton = document.getElementById('popup-button');
-const formButton = document.getElementById('form-button')
-const form = document.querySelector('#form')
-const table = document.querySelector('table');
 
 window.onload = function() {
     formContainer.style.visibility = 'hidden';
@@ -111,8 +95,6 @@ const formVisible = function() {
 const formHidden = function() {
     formContainer.style.visibility = 'hidden';
 }
-
-
 
 const tableVisible = function () {
     table.style.visibility = 'visible';
@@ -131,6 +113,8 @@ function addNewBook(e) {
     formHidden();
     tableVisible();
 }
+
+// EVENT LISTENERS
 popupButton.addEventListener('click', formVisible);
 form.addEventListener('submit', addNewBook);
 
