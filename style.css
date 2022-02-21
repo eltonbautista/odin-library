@@ -128,6 +128,19 @@ table {
     font-size: 12px;
   }
   
+#table-div {
+  max-height: 600px;
+  min-height: 60vh;
+  overflow-y: scroll;
+  margin-top: 10px;
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  
+}
+#table-div::-webkit-scrollbar {
+  display: none;
+}
+
+
 td, th {
     border: 2px solid rgb(245, 222, 179);
     padding: 10px 20px;
