@@ -16,12 +16,22 @@ const read = document.querySelector('#read-status');
 // FUNCTIONS
 let myLibrary = [];
 
-function Book(title, author, pages, genre, read) {
+// function Book(title, author, pages, genre, read) {
+//     this.title = title;
+//     this.author = author;
+//     this.pages = pages;
+//     this.genre = genre;
+//     this.read = read;
+// }
+
+class Book {
+    constructor(title, author, pages, genre, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.genre = genre;
     this.read = read;
+    }
 }
 
 function addBookToLibrary() {
@@ -61,6 +71,9 @@ const displayBook = function() {
             removeButton.addEventListener('click', function() {
                 myLibrary.splice(removeButton.dataset.remove, 1)
                 displayBook();
+                if (myLibrary.length == 0) {
+                    table.style.visibility = 'hidden';
+                }
             })
 
             const readToggleColumn = document.createElement('td');
