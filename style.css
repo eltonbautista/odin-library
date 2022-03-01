@@ -111,6 +111,12 @@ footer > span > a {
   grid-template-columns: 75%;
 }
 
+button:active {
+background-color: red;
+box-shadow: 0 5px red;
+transform: translateY(5px);
+}
+
 
 
 /* TABLE */
@@ -143,7 +149,7 @@ table {
 
 td, th {
     border: 2px solid rgb(245, 222, 179);
-    padding: 10px 20px;
+    padding: 10px 0px;
   }
   
 th, tfoot {
@@ -154,7 +160,8 @@ th, tfoot {
 
 td {
     text-align: center;
-
+    block-size: fit-content;
+    width: fit-content;
   }
   
 tr:nth-child(even) td {

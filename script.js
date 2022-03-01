@@ -32,14 +32,38 @@ class Book {
     this.genre = genre;
     this.read = read;
     }
+    readToggle(read) {
+        const readToggleButton = document.createElement('button');
+        const red = (e) => {
+            readToggleButton.innerText = 'Yes, finished!';
+            readToggleButton.style.backgroundColor = 'red';
+            readToggleButton.style.color = 'white';
+        }
+        const black = (e) => {
+            readToggleButton.innerText = 'Not yet!';
+            readToggleButton.style.backgroundColor = 'black';
+            readToggleButton.style.color = 'wheat';
+        }
+        if (read == 'Yes') {
+            red();
+        } else if (read == 'No') {
+            black();
+        }
+        readToggleButton.addEventListener('click', function(e) {
+            if (this.innerText == 'Yes, finished!') {
+                black();
+            } else red();
+        })
+        return readToggleButton;
+    }
 }
 
 function addBookToLibrary() {
 
     if (read.checked == true) {
-        return myLibrary.push(new Book(title.value, author.value, pages.value, genre.value, 'Yes'))
+        return myLibrary.push(new Book(title.value, author.value, pages.value, genre.value, 'Yes'));
     } else if(read.checked == false) {
-        return myLibrary.push(new Book(title.value, author.value, pages.value, genre.value, 'No'))
+        return myLibrary.push(new Book(title.value, author.value, pages.value, genre.value, 'No'));
     }
 }
 
@@ -54,8 +78,11 @@ const displayBook = function() {
         tableBody.appendChild(newTableRow);
         
             for (let property in book) {
-                if (property == 'readToggle') {continue} else {
                 const newTableDataCell = document.createElement('td');
+                if (property == 'read') {
+                    newTableDataCell.appendChild(book.readToggle(book.read));
+                    newTableRow.appendChild(newTableDataCell);
+                } else {
                 const information = document.createTextNode(book[property] + '');
                 newTableDataCell.appendChild(information);
                 newTableRow.appendChild(newTableDataCell);
@@ -75,22 +102,6 @@ const displayBook = function() {
                     table.style.visibility = 'hidden';
                 }
             })
-
-            const readToggleColumn = document.createElement('td');
-            const readToggleButton = document.createElement('button');
-            readToggleButton.innerText = 'Read Toggle';
-            readToggleButton.dataset.toggle = i++;
-            readToggleColumn.appendChild(readToggleButton);
-            newTableRow.appendChild(readToggleColumn);
-            readToggleButton.addEventListener('click', function() {
-                if (myLibrary[readToggleButton.dataset.toggle].read == 'Yes') {
-                    myLibrary[readToggleButton.dataset.toggle].read = 'No'
-                    displayBook();
-                } else if (myLibrary[readToggleButton.dataset.toggle].read == 'No') {
-                    myLibrary[readToggleButton.dataset.toggle].read = 'Yes'
-                    displayBook();
-                }
-            });
     })
 }
 
