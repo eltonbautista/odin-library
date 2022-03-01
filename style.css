@@ -113,8 +113,8 @@ footer > span > a {
 
 button:active {
 background-color: red;
-box-shadow: 0 5px red;
-transform: translateY(5px);
+box-shadow: 0 2px red;
+transform: translateY(2px);
 }
 
 
@@ -132,6 +132,7 @@ table {
     font-size: 0.8rem;
     color: white;
     font-size: 12px;
+    text-align: center;
   }
   
 #table-div {
@@ -151,17 +152,12 @@ td, th {
     border: 2px solid rgb(245, 222, 179);
     padding: 10px 0px;
   }
-  
+td:nth-child(5), td:nth-child(6){
+  width: 110px;
+}
 th, tfoot {
     background-color: black;
     font-size: 14px;
-  }
-
-
-td {
-    text-align: center;
-    block-size: fit-content;
-    width: fit-content;
   }
   
 tr:nth-child(even) td {
@@ -170,7 +166,11 @@ tr:nth-child(even) td {
   }
   
 tr:nth-child(odd) td {
-    background-color: white;
+    background-color: white;/* td {
+      text-align: center;
+      block-size: fit-content;
+      width: fit-content;
+    } */
     color: black;
   }
   tr:nth-child(odd) td button {
